@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use DB;
+use Log;
 use App\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -110,7 +111,7 @@ class PostController extends Controller
         $tags = explode(",", $allTags);
 
         $posts = Post::find(1)->tags()->whereIn('name', $tags)->get();
-        
+
         return response()->json(array(
             'error' => false,
             'posts' => $posts),
@@ -199,6 +200,7 @@ class PostController extends Controller
                 'message' => 'Post has been deleted.'),
                 200
             );
+            Log::info('Deleted post with id: '.$id);
         }else{
             return response()->json(array(
                 'error' => true,
