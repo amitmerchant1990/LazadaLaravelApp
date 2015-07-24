@@ -2,7 +2,7 @@
 
 This is an app made in Laravel v5.1.8 (LTS) to handle the API calls for the terms Posts(Title, Body,..) and Tags related to the posts. The API basically do all of the CRUD operations for both of the entities(i.e. Posts, Tags)
 
-Eloquent ORM has been used to perform the database operations. 
+**Eloquent ORM** has been used to perform the database operations. 
 
 [Postman](https://www.getpostman.com/) has been used to test the API calls.
 
@@ -86,6 +86,11 @@ http://localhost:84/laravel/public/api/v1/tags/destroy/{id}
 ## Why
 
 The application is used to showcase the API handeling in [Laravel](http://laravel.com). 
+
+## Requirements
+
+PHP > 5.6
+MySQL
 
 ### License
 
