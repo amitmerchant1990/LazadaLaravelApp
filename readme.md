@@ -27,7 +27,7 @@ Eloquent ORM has been used to perform the database operations.
     ]
 ````
 
-- Import databse from `database\lazada_app.sql`
+- Import database from `database\lazada_app.sql`
 
 - Done!
 
