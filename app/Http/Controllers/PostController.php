@@ -94,28 +94,31 @@ class PostController extends Controller
         $allTags = $request->input('tags');
         $tags = explode(",", $allTags);
 
-        $post = Post::find(1)->tags()->where('name', 'in', $tags)->get();
+        $posts = Post::find(1)->tags()->whereIn('name', $tags)->get();
 
         return response()->json(array(
             'error' => false,
-            'message' => $post),
+            'posts' => $posts),
             200
         );
     }
 
     /**
-     * Get all posts by Tags.
+     * Get all posts count by Tags.
      *
      * @param  array  $tags
      * @return Response
      */
-    public function findCountPostByTags()
+    public function findCountPostByTags(Request $request)
     {
-        $post = Post::find(1)->tags()->where('name', 'like', 'blue')->get();
+        $allTags = $request->input('tags');
+        $tags = explode(",", $allTags);
+
+        $postCount = Post::find(1)->tags()->whereIn('name', $tags)->count();
 
         return response()->json(array(
             'error' => false,
-            'message' => $post),
+            'count' => $postCount),
             200
         );
     }

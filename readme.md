@@ -1,27 +1,54 @@
-## Laravel PHP Framework
+## Lazada Sample Laravel API
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This is an app made in Laravel to handle the API calls for the terms Posts(Title, Body,..) and Tags related to the posts. The API basically do all of the CRUD operations for both of the entities(i.e. Posts, Tags)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Eloquent ORM has been used to perform the database operations. 
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+[Postman](https://www.getpostman.com/) has been used to test the API calls.
 
-## Official Documentation
+## Configure
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+- Download the lastest source code from master.
 
-## Contributing
+- Unzip the same into the directory of your choice.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+- Set database connection in `config\database.php` with your username/password and host
+'mysql' => [
+        'driver'    => 'mysql',
+        'host'      => 'localhost',
+        'database'  => 'lazada_app',
+        'username'  => 'root',
+        'password'  => '',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+        'strict'    => false,
+    ]
 
-## Security Vulnerabilities
+- Done!
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## API Calls
+
+Posts
+=====
+http://localhost:84/laravel/public/api/v1/posts/store
+http://localhost:84/laravel/public/api/v1/posts/index
+http://localhost:84/laravel/public/api/v1/posts/show/{id}
+http://localhost:84/laravel/public/api/v1/posts/destroy/{id}
+http://localhost:84/laravel/public/api/v1/posts/findAllPostByTags/{tags}
+http://localhost:84/laravel/public/api/v1/posts/findCountPostByTags/{tags}
+
+Tags
+====
+http://localhost:84/laravel/public/api/v1/tags/store
+http://localhost:84/laravel/public/api/v1/tags/index
+http://localhost:84/laravel/public/api/v1/tags/show/{id}
+http://localhost:84/laravel/public/api/v1/tags/destroy/{id}
+
+## Why
+
+The application is used to showcase the API handeling in [Laravel](http://laravel.com). 
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+MIT Licence
