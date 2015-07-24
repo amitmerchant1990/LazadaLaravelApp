@@ -1,6 +1,6 @@
 ## Lazada Sample Laravel API
 
-This is an app made in Laravel to handle the API calls for the terms Posts(Title, Body,..) and Tags related to the posts. The API basically do all of the CRUD operations for both of the entities(i.e. Posts, Tags)
+This is an app made in Laravel v5.1.8 (LTS) to handle the API calls for the terms Posts(Title, Body,..) and Tags related to the posts. The API basically do all of the CRUD operations for both of the entities(i.e. Posts, Tags)
 
 Eloquent ORM has been used to perform the database operations. 
 
