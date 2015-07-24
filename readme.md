@@ -13,6 +13,7 @@ Eloquent ORM has been used to perform the database operations.
 - Unzip the same into the directory of your choice.
 
 - Set database connection in `config\database.php` with your username/password and host
+```mysql
 'mysql' => [
         'driver'    => 'mysql',
         'host'      => 'localhost',
@@ -24,7 +25,7 @@ Eloquent ORM has been used to perform the database operations.
         'prefix'    => '',
         'strict'    => false,
     ]
-
+````
 - Done!
 
 ## API Calls
