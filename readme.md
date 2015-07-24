@@ -89,9 +89,9 @@ The application is used to showcase the API handeling in [Laravel](http://larave
 
 ## Requirements
 
-PHP > 5.6
-MySQL
-Composer
+- PHP > 5.6
+- MySQL
+- Composer
 
 ### License
 
