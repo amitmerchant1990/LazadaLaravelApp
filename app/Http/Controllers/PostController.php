@@ -20,11 +20,20 @@ class PostController extends Controller
     public function index()
     {   
         $posts = Post::all();
-        return response()->json(array(
-            'error' => false,
-            'posts' => $posts),
-            200
-        );
+
+        if(!empty($posts)){
+            return response()->json(array(
+                'error' => false,
+                'posts' => $posts),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => false,
+                'posts' => 'No posts found.'),
+                200
+            );
+        }
     }
 
     /**
@@ -34,9 +43,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $id = DB::table('posts')->insertGetId(
-            ['title' => 'test title', 'body' => 'test body']    
-        );
+        //
     }
 
     /**
@@ -76,11 +83,19 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        return response()->json(array(
-            'error' => false,
-            'message' => $post),
-            200
-        );
+        if($post){
+            return response()->json(array(
+                'error' => false,
+                'message' => $post),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => false,
+                'message' => 'No post found.'),
+                200
+            );
+        }
     }
 
     /**
@@ -95,7 +110,7 @@ class PostController extends Controller
         $tags = explode(",", $allTags);
 
         $posts = Post::find(1)->tags()->whereIn('name', $tags)->get();
-
+        
         return response()->json(array(
             'error' => false,
             'posts' => $posts),
@@ -143,7 +158,29 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = User::find($id);
+
+        if($request->input('title') && $request->input('title')!=''){
+            $post->title = $request->input('title');
+        }
+
+        if($request->input('body') && $request->input('body')!=''){
+            $post->body = $request->input('body');
+        }
+
+        if($post->save()){
+            return response()->json(array(
+                'error' => false,
+                'message' => 'Post has been updated.'),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => true,
+                'message' => 'Post has not been updated.'),
+                200
+            );
+        }
     }
 
     /**
@@ -160,6 +197,12 @@ class PostController extends Controller
             return response()->json(array(
                 'error' => false,
                 'message' => 'Post has been deleted.'),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => true,
+                'message' => 'Post has not been deleted.'),
                 200
             );
         }

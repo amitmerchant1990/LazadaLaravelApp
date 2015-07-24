@@ -32,19 +32,53 @@ Eloquent ORM has been used to perform the database operations.
 
 Posts
 =====
+```
 http://localhost:84/laravel/public/api/v1/posts/store
+
+Params for posts/store:
+{
+	title:"test title",
+	body:"test body"
+}
+
 http://localhost:84/laravel/public/api/v1/posts/index
 http://localhost:84/laravel/public/api/v1/posts/show/{id}
+
+http://localhost:84/laravel/public/api/v1/posts/update/{id}
+
+Params for posts/update:
+{
+	title:"test title",
+	body:"test body"
+}
+
 http://localhost:84/laravel/public/api/v1/posts/destroy/{id}
-http://localhost:84/laravel/public/api/v1/posts/findAllPostByTags/{tags}
-http://localhost:84/laravel/public/api/v1/posts/findCountPostByTags/{tags}
+http://localhost:84/laravel/public/api/v1/posts/findAllPostByTags/{tags} (Comma separated tags as params)
+http://localhost:84/laravel/public/api/v1/posts/findCountPostByTags/{tags} (Comma separated tags as params)
+```
 
 Tags
 ====
+```
 http://localhost:84/laravel/public/api/v1/tags/store
+
+Params for tags/store:
+{
+	name:"test tage name"
+}
+
 http://localhost:84/laravel/public/api/v1/tags/index
 http://localhost:84/laravel/public/api/v1/tags/show/{id}
+
+http://localhost:84/laravel/public/api/v1/tags/update/{id}
+
+Params for tags/update:
+{
+	name:"test tage name"
+}
+
 http://localhost:84/laravel/public/api/v1/tags/destroy/{id}
+```
 
 ## Why
 
@@ -52,4 +86,4 @@ The application is used to showcase the API handeling in [Laravel](http://larave
 
 ### License
 
-MIT Licence
+MIT Licence &copy; [Amit Merchant](http://www.amitmerchant.com)

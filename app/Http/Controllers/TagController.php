@@ -21,11 +21,20 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        return response()->json(array(
+
+        if(!empty($tags)){
+            return response()->json(array(
+                'error' => false,
+                'tags' => $tags),
+                200
+            );
+        }else{
+            return response()->json(array(
             'error' => false,
-            'tags' => $tags),
+            'tags' => 'No tags found.'),
             200
         );
+        }
     }
 
     /**
@@ -74,11 +83,19 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
 
-        return response()->json(array(
+        if($tag){
+            return response()->json(array(
+                'error' => false,
+                'message' => $tag),
+                200
+            );
+        }else{
+            return response()->json(array(
             'error' => false,
-            'message' => $tag),
+            'message' => 'No tag found.'),
             200
         );
+        }
     }
 
     /**
@@ -101,7 +118,25 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+
+        if($request->input('name') && $request->input('name')!=''){
+            $tag->name = $request->input('name');
+        }
+
+        if($tag->save()){
+            return response()->json(array(
+                'error' => false,
+                'message' => 'Tag has been updated.'),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => true,
+                'message' => 'Tag has not been updated.'),
+                200
+            );
+        }
     }
 
     /**
@@ -118,6 +153,12 @@ class TagController extends Controller
             return response()->json(array(
                 'error' => false,
                 'message' => 'Tag has been deleted.'),
+                200
+            );
+        }else{
+            return response()->json(array(
+                'error' => false,
+                'message' => 'Tag has not been deleted.'),
                 200
             );
         }
