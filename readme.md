@@ -26,6 +26,9 @@ Eloquent ORM has been used to perform the database operations.
         'strict'    => false,
     ]
 ````
+
+- Import databse from `database\lazada_app.sql`
+
 - Done!
 
 ## API Calls
