@@ -1,4 +1,4 @@
-## Lazada Sample Laravel API
+## Test Laravel API
 
 This is an app made in Laravel v5.1.8 (LTS) to handle the API calls for the terms Posts(Title, Body,..) and Tags related to the posts. The API basically do all of the CRUD operations for both of the entities(i.e. Posts, Tags)
 
